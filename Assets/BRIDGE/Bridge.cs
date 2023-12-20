@@ -6,7 +6,7 @@ using System;
 using System.Runtime.InteropServices;
 using TMPro;
 
-namespace NotSpaceInvaders
+namespace SpaceEscape
 {
     public class NativeAPI
     {
@@ -75,7 +75,8 @@ namespace NotSpaceInvaders
         public PlayerInfo thisPlayerInfo;
         private static Bridge instance;
         public int coinsCollected = 0;
-
+        [SerializeField] private SelectShip selectShip;
+        
 #if UNITY_WEBGL && !UNITY_EDITOR
         [DllImport("__Internal")]
         private static extern void setScore(int score);
@@ -217,7 +218,7 @@ namespace NotSpaceInvaders
 
             }
             
-            //selectShip.CheckShips();
+            selectShip.CheckShips();
             
             //Replay();
             //Events.CoinsCountChanged.Call();

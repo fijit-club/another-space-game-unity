@@ -11,9 +11,12 @@ public class BasicPlayingStateComponents : InGameComponents
     [SerializeField] private MonoBehaviour[] componentsToDisable;
 
     [SerializeField] private CameraController cameraController;
-
+    [SerializeField] private Animator abilityButton;
+    
     public override void EnteredState()
     {
+        abilityButton.Play("Idle", -1, 0f);
+        
         cameraController.CameraStart();
         inGameUI.SetActive(true);
         foreach (var go in gameObjectsToEnable)
