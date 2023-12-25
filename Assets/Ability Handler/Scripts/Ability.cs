@@ -2,7 +2,7 @@ using UnityEngine;
 
 public abstract class Ability : MonoBehaviour
 {
-    [SerializeField] private Animator abilityButton;
+    [SerializeField] protected Animator abilityButton;
 
     public abstract void TriggerAbility();
 

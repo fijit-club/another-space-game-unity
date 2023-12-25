@@ -12,11 +12,12 @@ public class BasicPlayingStateComponents : InGameComponents
 
     [SerializeField] private CameraController cameraController;
     [SerializeField] private Animator abilityButton;
+    [SerializeField] private PlayerTrigger playerTrigger;
     
     public override void EnteredState()
     {
-        abilityButton.Play("Idle", -1, 0f);
-        
+        playerTrigger.planets.Clear();
+        playerTrigger.planetsCrossed = 0;
         cameraController.CameraStart();
         inGameUI.SetActive(true);
         foreach (var go in gameObjectsToEnable)

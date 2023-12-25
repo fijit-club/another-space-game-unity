@@ -76,6 +76,7 @@ namespace SpaceEscape
         private static Bridge instance;
         public int coinsCollected = 0;
         [SerializeField] private SelectShip selectShip;
+        [SerializeField] private GameOverMenu gameOverMenu;
         
 #if UNITY_WEBGL && !UNITY_EDITOR
         [DllImport("__Internal")]
@@ -201,6 +202,7 @@ namespace SpaceEscape
         public void Replay()
         {
             coinsCollected = 0; // REPLAY GOES HERE
+            gameOverMenu.RestartGame();
         }
 
         public void SendInitialData(string json)

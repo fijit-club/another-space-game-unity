@@ -1,17 +1,30 @@
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class PlayerMovement : MonoBehaviour
 {
     public bool stopMoving;
+    public bool magnetise;
+    public float magnetStrength;
+    public Transform nextPlanet;
     
     [SerializeField] private float speed;
+    [SerializeField] private TMP_Text scoreText;
     
     private Rigidbody2D _rb;
+    private int _score;
+    private float _time;
 
     private void Start()
     {
         _rb = GetComponent<Rigidbody2D>();
+    }
+
+    public void ResetScore()
+    {
+        scoreText.text = "0";
+        _score = 0;
     }
 
     public void LeavePlanet()
@@ -34,9 +47,33 @@ public class PlayerMovement : MonoBehaviour
             SceneManager.LoadScene(0);
     }
 
+    private void CalculateScore()
+    {
+        _time += Time.deltaTime;
+        if (_time > .05f)
+        {
+            _time = 0f;
+            _score++;
+            scoreText.text = _score.ToString();
+        }
+    }
+    
     private void FixedUpdate()
     {
-        if (stopMoving)
+        if (!stopMoving)
+        {
+            if (magnetise)
+            {
+                var transform1 = transform;
+                Vector3 difference = nextPlanet.position - transform1.position;
+                float rotationZ = Mathf.Atan2(difference.y, difference.x) * Mathf.Rad2Deg;
+                
+                var targetRotation = Quaternion.Euler(0.0f, 0.0f, rotationZ - 90f);
+                transform1.rotation = Quaternion.Lerp(transform1.rotation, targetRotation, magnetStrength);
+            }
+            CalculateScore();
+        }
+        else
         {
             _rb.velocity = Vector3.zero;
             return;

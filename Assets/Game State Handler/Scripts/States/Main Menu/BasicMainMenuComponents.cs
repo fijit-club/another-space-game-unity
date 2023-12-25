@@ -31,12 +31,13 @@ public class BasicMainMenuComponents : InGameComponents
     {
         foreach (var planet in planets)
             Destroy(planet);
-        
+
         planets.Clear();
         playerTrigger.planetData.startY = 0f;
         
         firstPlanet.enabled = true;
         player.position = _oldPlayerPosition;
+        playerVisual.transform.position = _oldPlayerPosition;
         player.rotation = Quaternion.identity;
         cameraTransform.position = _oldCameraPosition;
         playerMovement.stopMoving = false;
