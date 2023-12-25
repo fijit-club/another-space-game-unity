@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using SpaceEscape;
+using TMPro;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -27,13 +28,22 @@ public class PlayerTrigger : MonoBehaviour
     [SerializeField] private GameOverState gameOverState;
     [SerializeField] private GameObject playerVisual;
     [SerializeField] private BasicMainMenuComponents mainMenuComponents;
+    [SerializeField] private TMP_Text coinsText;
     
     private GameObject _oldPlanet;
     private Transform _currentPlanet;
     private float _rotation = 180f;
     private float _maxInclusive;
     private Transform _nextPlanet;
+    private int _coins;
 
+    public void ResetCoins()
+    {
+        coinsText.text = "0";
+        _coins = 0;
+        _rotation = 180f;
+    }
+    
     private void OnTriggerEnter2D(Collider2D col)
     {
         if (col.CompareTag("Planet"))
@@ -71,6 +81,8 @@ public class PlayerTrigger : MonoBehaviour
             float rotationZ = Mathf.Atan2(difference.y, difference.x) * Mathf.Rad2Deg;
             transform.rotation = Quaternion.Euler(0.0f, 0.0f, rotationZ - 90f);
             Destroy(col.gameObject);
+            _coins++;
+            coinsText.text = _coins.ToString();
         }
     }
 

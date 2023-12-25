@@ -11,6 +11,7 @@ public class PlayerMovement : MonoBehaviour
     
     [SerializeField] private float speed;
     [SerializeField] private TMP_Text scoreText;
+    [SerializeField] private PlayerTrigger playerTrigger;
     
     private Rigidbody2D _rb;
     private int _score;
@@ -25,6 +26,7 @@ public class PlayerMovement : MonoBehaviour
     {
         scoreText.text = "0";
         _score = 0;
+        playerTrigger.ResetCoins();
     }
 
     public void LeavePlanet()
