@@ -1142,25 +1142,25 @@ MonoBehaviour:
     ability: {fileID: 0}
   - name: Slow Time
     id: space-escape-slow-time-ship
-    sprite: {fileID: 21300000, guid: 47c8acc4037f7e1448b51fe75104871e, type: 3}
+    sprite: {fileID: 21300000, guid: 169924637078b7542aafbdba745f9900, type: 3}
     coinsRequired: 500
     purchased: 0
     ability: {fileID: 362795892}
   - name: Magnetise
     id: space-escape-magnetise-ship
-    sprite: {fileID: 21300000, guid: 47c8acc4037f7e1448b51fe75104871e, type: 3}
+    sprite: {fileID: 21300000, guid: b5c29f221f5c1184787aa0c6fc8612ce, type: 3}
     coinsRequired: 1000
     purchased: 0
     ability: {fileID: 1010414512}
   - name: Break Through
     id: space-escape-break-through-ship
-    sprite: {fileID: 21300000, guid: 68e5a78013e33f247822a837e55b0ab4, type: 3}
+    sprite: {fileID: 21300000, guid: a7a2391981b56024a94aab1b76676946, type: 3}
     coinsRequired: 3000
     purchased: 0
     ability: {fileID: 0}
   - name: Big
     id: space-escape-big-ship
-    sprite: {fileID: 21300000, guid: daf2ab606d4db0d4f9ecf4c02137d2a8, type: 3}
+    sprite: {fileID: 21300000, guid: 23ff5951f39ba6c4b948f4dc78d085ac, type: 3}
     coinsRequired: 5000
     purchased: 0
     ability: {fileID: 0}
