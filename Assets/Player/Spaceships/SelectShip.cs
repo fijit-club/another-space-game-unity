@@ -63,10 +63,16 @@ public class SelectShip : MonoBehaviour
 
     public void CheckShips()
     {
-        for (int i = 1; i < spaceships.Length; i++)
+        List<SpaceEscape.Assets> dataInBridge = Bridge.GetInstance().thisPlayerInfo.data.assets;
+        
+        for (int i = 0; i < spaceships.Length; i++)
         {
-            if (spaceships[i].id == spaceships[_currentIndex].id)
-                spaceships[_currentIndex].purchased = true;
+            for (int j = 0; j < dataInBridge.Count; j++)
+            {
+                string id = dataInBridge[j].id;
+                if (spaceships[i].id == id)
+                    spaceships[i].purchased = true;
+            }
         }
 
         coinsText.text = Bridge.GetInstance().thisPlayerInfo.coins.ToString();
@@ -83,7 +89,7 @@ public class SelectShip : MonoBehaviour
         
         spaceShipImage.sprite = currentSpaceship.sprite;
 
-        List<SpaceEscape.Spaceship> spaceshipsData = Bridge.GetInstance().thisPlayerInfo.data.spaceships;
+        List<SpaceEscape.Assets> spaceshipsData = Bridge.GetInstance().thisPlayerInfo.data.assets;
 
         shipText.text = currentSpaceship.name;
 

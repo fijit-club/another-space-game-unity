@@ -3,6 +3,14 @@ using UnityEngine;
 public class CheckToxicity : MonoBehaviour
 {
     [SerializeField] private GameObject explosion;
+    
+    private static readonly int ExplosionSpeed = Animator.StringToHash("ExplosionSpeed");
+
+    private void Start()
+    {
+        var animator = GetComponent<Animator>();
+        animator.SetFloat(ExplosionSpeed, GameplayHandler.ExplosionSpeed);
+    }
 
     public void Explode()
     {

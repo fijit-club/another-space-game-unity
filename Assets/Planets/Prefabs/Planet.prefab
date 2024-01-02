@@ -122,7 +122,8 @@ MonoBehaviour:
   cantDie: 0
   reversed: 0
   coinRenderer: {fileID: 3305171938083040359}
-  rotationSpeed: 20
+  incrementSpeed: 0.2
+  maxSpeed: 40
 --- !u!114 &314824011483810980
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -12,6 +12,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float speed;
     [SerializeField] private TMP_Text scoreText;
     [SerializeField] private PlayerTrigger playerTrigger;
+    [SerializeField] private GameObject directionVisual;
     
     private Rigidbody2D _rb;
     private int _score;
@@ -33,6 +34,8 @@ public class PlayerMovement : MonoBehaviour
     {
         if (transform.parent == null) return;
         var transform1 = transform;
+        
+        directionVisual.SetActive(false);
         
         Vector3 difference = transform1.parent.position - transform1.position;
         float rotationZ = Mathf.Atan2(difference.y, difference.x) * Mathf.Rad2Deg;

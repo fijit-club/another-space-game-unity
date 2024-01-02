@@ -6,6 +6,8 @@ public class MainMenuState : MonoBehaviour, IState
     
     public void OnEnter()
     {
+        GameplayHandler.ExplosionSpeed = 0.5f;
+        GameplayHandler.PlanetRotationSpeed = 20f;
         foreach (var mainMenuComponent in mainMenuComponents)
             mainMenuComponent.EnteredState();
     }

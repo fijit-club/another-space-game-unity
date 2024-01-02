@@ -22,13 +22,18 @@ public class PlayerTrigger : MonoBehaviour
     public List<GameObject> planets = new List<GameObject>();
     public PlanetData planetData;
     public int planetsCrossed;
-
+    public bool savePlanetAbility;
+    
     [SerializeField] private PlayerMovement playerMovement;
     [SerializeField] private Transform cameraTransform;
     [SerializeField] private GameOverState gameOverState;
     [SerializeField] private GameObject playerVisual;
     [SerializeField] private BasicMainMenuComponents mainMenuComponents;
     [SerializeField] private TMP_Text coinsText;
+    [SerializeField] private Transform directionVisual;
+    [SerializeField] private MainMenuState mainMenuState;
+    [SerializeField] private float maxExplosionSpeed;
+    [SerializeField] private float incrementExplosionSpeed;
     
     private GameObject _oldPlanet;
     private Transform _currentPlanet;
@@ -48,10 +53,12 @@ public class PlayerTrigger : MonoBehaviour
     {
         if (col.CompareTag("Planet"))
         {
-            if (!col.GetComponent<PlanetRotation>().cantDie)
+            if (!col.GetComponent<PlanetRotation>().cantDie && !savePlanetAbility)
                 col.transform.GetChild(0).gameObject.SetActive(true);
 
             _currentPlanet = col.transform;
+            
+            directionVisual.gameObject.SetActive(true);
             
             if (planetsCrossed == 2)
             {
@@ -62,7 +69,12 @@ public class PlayerTrigger : MonoBehaviour
             
             if (!col.GetComponent<PlanetRotation>().cantDie)
                 planetsCrossed++;
-            
+
+            if (GameplayHandler.ExplosionSpeed < maxExplosionSpeed)
+                GameplayHandler.ExplosionSpeed += incrementExplosionSpeed;
+            else
+                GameplayHandler.ExplosionSpeed = maxExplosionSpeed;
+
             AttachToPlanet(col);
             var planetInst = SpawnPlanet();
             _nextPlanet = planetInst;
@@ -88,6 +100,7 @@ public class PlayerTrigger : MonoBehaviour
 
     public void GameOver()
     {
+        if (GameStateManager.CurrentState == mainMenuState) return;
         gameObject.SetActive(false);
         playerVisual.SetActive(false);
         GameStateManager.ChangeState(gameOverState);
@@ -100,6 +113,13 @@ public class PlayerTrigger : MonoBehaviour
         
         Transform playerTransform;
         (playerTransform = transform).localRotation = Quaternion.Euler(0.0f, 0.0f, rotationZ + _rotation);
+
+        var rot = directionVisual.localEulerAngles;
+        if (Math.Abs(_rotation - 180f) < .1f)
+            rot.z = -90f;
+        else
+            rot.z = 90f;
+        directionVisual.localEulerAngles = rot;
 
         playerTransform.parent = col.transform;
         playerMovement.stopMoving = true;
