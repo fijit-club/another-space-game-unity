@@ -1374,31 +1374,31 @@ MonoBehaviour:
   spaceships:
   - name: Default
     id: space-escape-default-ship
-    sprite: {fileID: 21300000, guid: 64bd76c3ac33b1a4c93b638f69d68fde, type: 3}
+    sprite: {fileID: 21300000, guid: 10863b6d3a7d5e24b8d04ae90a56e93c, type: 3}
     coinsRequired: 0
     purchased: 1
     ability: {fileID: 0}
   - name: Slow Time
     id: space-escape-slow-time-ship
-    sprite: {fileID: 21300000, guid: 169924637078b7542aafbdba745f9900, type: 3}
+    sprite: {fileID: 21300000, guid: df5032590b7b6eb4aa355487c7543141, type: 3}
     coinsRequired: 500
     purchased: 0
     ability: {fileID: 362795892}
   - name: Magnetise
     id: space-escape-magnetise-ship
-    sprite: {fileID: 21300000, guid: b5c29f221f5c1184787aa0c6fc8612ce, type: 3}
+    sprite: {fileID: 21300000, guid: ef087d19bf3c95144a9f8c54d36a8af9, type: 3}
     coinsRequired: 1000
     purchased: 0
     ability: {fileID: 1010414512}
   - name: Longer Aim
     id: space-escape-longer-aim-ship
-    sprite: {fileID: 21300000, guid: a7a2391981b56024a94aab1b76676946, type: 3}
+    sprite: {fileID: 21300000, guid: 3e303cbbfc6e8fa4aa974eb41def62ac, type: 3}
     coinsRequired: 3000
     purchased: 0
     ability: {fileID: 369068442}
   - name: Cancel Explosion
     id: space-escape-cancel-explosion-ship
-    sprite: {fileID: 21300000, guid: 23ff5951f39ba6c4b948f4dc78d085ac, type: 3}
+    sprite: {fileID: 21300000, guid: 80fd8e1a235ea9c48a6580654ee8b296, type: 3}
     coinsRequired: 5000
     purchased: 0
     ability: {fileID: 968985531}
@@ -2799,7 +2799,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 64bd76c3ac33b1a4c93b638f69d68fde, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 10863b6d3a7d5e24b8d04ae90a56e93c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -2818,8 +2818,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1182594014}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.21545076, y: 0.21545076, z: 0.21545076}
+  m_LocalPosition: {x: 0, y: 0.82, z: 0}
+  m_LocalScale: {x: 0.6934283, y: 0.6934283, z: 0.6934283}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 99592060}
