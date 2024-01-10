@@ -5151,7 +5151,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   thisPlayerInfo:
-    coins: 0
+    coins: 10000
     volumeBg: 1
     volumeSfx: 1
     highScore: 0
