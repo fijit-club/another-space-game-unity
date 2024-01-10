@@ -9,6 +9,8 @@ public class PlanetRotation : MonoBehaviour
     [SerializeField] public CheckToxicity checkToxicity;
     [SerializeField] private float incrementSpeed;
     [SerializeField] private float maxSpeed;
+    [SerializeField] private Sprite[] islandImages;
+    [SerializeField] private SpriteRenderer islandSpriteRenderer;
     
     [SerializeField]
     public float _rotationSpeed;
@@ -16,6 +18,7 @@ public class PlanetRotation : MonoBehaviour
     private void Start()
     {
         coinRenderer.transform.parent = null;
+        islandSpriteRenderer.sprite = islandImages[Random.Range(0, islandImages.Length)];
     }
 
     private void Update()

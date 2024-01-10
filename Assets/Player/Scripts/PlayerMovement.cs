@@ -32,6 +32,7 @@ public class PlayerMovement : MonoBehaviour
         scoreText.text = "0";
         _score = 0;
         playerTrigger.ResetCoins();
+        speed = 15;
     }
 
     public void LeavePlanet()

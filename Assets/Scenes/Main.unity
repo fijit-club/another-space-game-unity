@@ -471,6 +471,7 @@ MonoBehaviour:
     maxIncrementY: 3
     yFactor: 0.5
     yFactorIncrement: 0.01
+    yFactorMax: 1.4
     startY: 0
   planetsCrossed: 0
   savePlanetAbility: 0
@@ -3102,7 +3103,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 10863b6d3a7d5e24b8d04ae90a56e93c, type: 3}
+  m_Sprite: {fileID: 21300000, guid: d895b8ee8cd3b6a489d78a98d14d9e0a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -3122,7 +3123,7 @@ Transform:
   m_GameObject: {fileID: 1182594014}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0.06, y: 0.57, z: 0}
-  m_LocalScale: {x: 0.6934283, y: 0.6934283, z: 0.6934283}
+  m_LocalScale: {x: 0.40132254, y: 0.40132254, z: 0.40132254}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 99592060}
@@ -5506,5 +5507,29 @@ PrefabInstance:
       propertyPath: _rotationSpeed
       value: 15
       objectReference: {fileID: 0}
+    - target: {fileID: 5721910730282589093, guid: efd32dd0e2f7fb64282e8467c83efa44, type: 3}
+      propertyPath: islandImages.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5721910730282589093, guid: efd32dd0e2f7fb64282e8467c83efa44, type: 3}
+      propertyPath: islandImages.Array.data[0]
+      value: 
+      objectReference: {fileID: 21300000, guid: ce5185d1ebb47ca47b6c850d956026cd, type: 3}
+    - target: {fileID: 5721910730282589093, guid: efd32dd0e2f7fb64282e8467c83efa44, type: 3}
+      propertyPath: islandImages.Array.data[1]
+      value: 
+      objectReference: {fileID: 21300000, guid: 0957cbe723201b14899ea528721f2e52, type: 3}
+    - target: {fileID: 5721910730282589093, guid: efd32dd0e2f7fb64282e8467c83efa44, type: 3}
+      propertyPath: islandImages.Array.data[2]
+      value: 
+      objectReference: {fileID: 21300000, guid: f05d9bf888bf91b45b651ab366c85f80, type: 3}
+    - target: {fileID: 5721910730282589093, guid: efd32dd0e2f7fb64282e8467c83efa44, type: 3}
+      propertyPath: islandImages.Array.data[3]
+      value: 
+      objectReference: {fileID: 21300000, guid: 2e9231d29a0ebdf49a3ab24260be7af4, type: 3}
+    - target: {fileID: 5721910730282589093, guid: efd32dd0e2f7fb64282e8467c83efa44, type: 3}
+      propertyPath: islandImages.Array.data[4]
+      value: 
+      objectReference: {fileID: 21300000, guid: 2d913e5c68f91984e94c209289922f0c, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: efd32dd0e2f7fb64282e8467c83efa44, type: 3}
