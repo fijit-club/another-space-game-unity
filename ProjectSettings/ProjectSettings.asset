@@ -858,14 +858,20 @@ PlayerSettings:
   XboxOneOverrideIdentityName: 
   XboxOneOverrideIdentityPublisher: 
   vrEditorSettings: {}
-  cloudServicesEnabled: {}
+  cloudServicesEnabled:
+    Build: 0
+    Collab: 0
+    Game Performance: 0
+    Purchasing: 0
+    UDP: 0
+    Unity Ads: 0
   luminIcon:
     m_Name: 
     m_ModelFolderPath: 
     m_PortalFolderPath: 
   luminCert:
     m_CertPath: 
-    m_SignPackage: 1
+    m_SignPackage: 0
   luminIsChannelApp: 0
   luminVersion:
     m_VersionCode: 1
@@ -873,11 +879,11 @@ PlayerSettings:
   apiCompatibilityLevel: 6
   activeInputHandler: 0
   windowsGamepadBackendHint: 0
-  cloudProjectId: 1c2d14bb-7b3d-434c-8488-c06e663ea8e5
+  cloudProjectId: 
   framebufferDepthMemorylessMode: 0
   qualitySettingsNames: []
-  projectName: Voyager 2.0
-  organizationId: tv4956
+  projectName: 
+  organizationId: 
   cloudEnabled: 0
   legacyClampBlendShapeWeights: 0
   playerDataPath: 
