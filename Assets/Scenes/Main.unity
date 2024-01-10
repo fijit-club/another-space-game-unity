@@ -467,8 +467,10 @@ MonoBehaviour:
     planet: {fileID: 733296986777323890, guid: efd32dd0e2f7fb64282e8467c83efa44, type: 3}
     minX: -1.5
     maxX: 1.5
-    minIncrementY: 2
+    minIncrementY: 2.5
     maxIncrementY: 3
+    yFactor: 0.5
+    yFactorIncrement: 0.01
     startY: 0
   planetsCrossed: 0
   savePlanetAbility: 0
@@ -483,7 +485,7 @@ MonoBehaviour:
   maxExplosionSpeed: 1
   incrementExplosionSpeed: 0.05
   planetRotationStart: 15
-  planetRotationIncrement: 0.2
+  planetRotationIncrement: 0.05
   planetRotationMax: 40
   landPlanet: {fileID: 1214083753}
 --- !u!1 &144323084
@@ -511,7 +513,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 144323084}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 3.28, y: 0.3267, z: 10}
+  m_LocalPosition: {x: 3.94, y: 0.3267, z: 10}
   m_LocalScale: {x: 0.40575302, y: 10.571898, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -958,7 +960,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 287313923}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.94, y: 0, z: -10}
+  m_LocalPosition: {x: -4.98, y: 0, z: -10}
   m_LocalScale: {x: 1, y: 10.214844, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

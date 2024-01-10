@@ -14,7 +14,7 @@ public class PlanetData
     public float maxX;
     public float minIncrementY;
     public float maxIncrementY;
-    public float yFactor = .5f;
+    public float yFactor = 1f;
     public float yFactorIncrement = .01f;
     public float startY = 0f;
 }
@@ -50,6 +50,7 @@ public class PlayerTrigger : MonoBehaviour
 
     public void ResetCoins()
     {
+        planetRotationStart = 15f;
         coinsText.text = "0";
         _coins = 0;
         _rotation = 180f;
