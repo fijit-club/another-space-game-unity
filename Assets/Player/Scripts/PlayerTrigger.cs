@@ -145,7 +145,6 @@ public class PlayerTrigger : MonoBehaviour
         planetRotationHandler._rotationSpeed = planetRotationStart;
         if (planetRotationStart < planetRotationMax)
             planetRotationStart += planetRotationIncrement;
-        if (planetRotationHandler.reversed) planetRotationHandler._rotationSpeed *= -1;
             
         if (planetRotationHandler.checkToxicity.explosionSpeed < maxExplosionSpeed)
             planetRotationHandler.checkToxicity.explosionSpeed += incrementExplosionSpeed;
@@ -163,6 +162,7 @@ public class PlayerTrigger : MonoBehaviour
         {
             _rotation = 180f;
         }
+        if (planetRotationHandler.reversed) planetRotationHandler._rotationSpeed *= -1;
 
         mainMenuComponents.planets.Add(newPlanetInstance);
         
