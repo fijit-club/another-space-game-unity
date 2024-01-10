@@ -13,7 +13,9 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private TMP_Text scoreText;
     [SerializeField] private PlayerTrigger playerTrigger;
     [SerializeField] private GameObject directionVisual;
-    
+    [SerializeField] private float speedIncrement;
+    [SerializeField] private float maxSpeed;
+
     private Rigidbody2D _rb;
     private int _score;
     private float _time;
@@ -34,6 +36,11 @@ public class PlayerMovement : MonoBehaviour
     {
         if (transform.parent == null) return;
         var transform1 = transform;
+
+        if (speed < maxSpeed)
+            speed += speedIncrement;
+        else
+            speed = maxSpeed;
         
         directionVisual.SetActive(false);
         

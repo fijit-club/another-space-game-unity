@@ -442,10 +442,12 @@ MonoBehaviour:
   magnetise: 0
   magnetStrength: 0.1
   nextPlanet: {fileID: 1383056730}
-  speed: 30
+  speed: 15
   scoreText: {fileID: 624439072}
   playerTrigger: {fileID: 127606305}
   directionVisual: {fileID: 1704232035}
+  speedIncrement: 1
+  maxSpeed: 40
 --- !u!114 &127606305
 MonoBehaviour:
   m_ObjectHideFlags: 0
