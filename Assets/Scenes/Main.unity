@@ -1385,7 +1385,7 @@ MonoBehaviour:
   spaceships:
   - name: Default
     id: space-escape-default-ship
-    sprite: {fileID: 21300000, guid: 10863b6d3a7d5e24b8d04ae90a56e93c, type: 3}
+    sprite: {fileID: 21300000, guid: d895b8ee8cd3b6a489d78a98d14d9e0a, type: 3}
     coinsRequired: 0
     purchased: 1
     ability: {fileID: 0}
