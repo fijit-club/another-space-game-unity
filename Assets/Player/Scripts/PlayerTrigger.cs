@@ -52,6 +52,7 @@ public class PlayerTrigger : MonoBehaviour
     public void ResetCoins()
     {
         planetRotationStart = 15f;
+        planetData.yFactor = 1f;
         coinsText.text = "0";
         _coins = 0;
         _rotation = 180f;
