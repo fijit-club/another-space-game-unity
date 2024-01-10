@@ -6,7 +6,7 @@ internal class Builder{
     {
 
         // Place all your scenes here
-        string[] scenes = {"path_to_the_scene"};
+        string[] scenes = {"Assets/Scenes/Main.unity"};
 
         string[] args = Environment.GetCommandLineArgs();
         string outputPath = "builds/raw/web"; // Set a default path if the argument is not provided

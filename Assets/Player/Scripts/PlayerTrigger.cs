@@ -37,6 +37,7 @@ public class PlayerTrigger : MonoBehaviour
     [SerializeField] private float planetRotationStart;
     [SerializeField] private float planetRotationIncrement;
     [SerializeField] private float planetRotationMax;
+    [SerializeField] private AudioSource landPlanet;
 
     private GameObject _oldPlanet;
     private Transform _currentPlanet;
@@ -62,6 +63,8 @@ public class PlayerTrigger : MonoBehaviour
             _currentPlanet = col.transform;
             
             directionVisual.gameObject.SetActive(true);
+            
+            landPlanet.Play();
             
             if (planetsCrossed == 2)
             {

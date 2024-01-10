@@ -15,6 +15,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private GameObject directionVisual;
     [SerializeField] private float speedIncrement;
     [SerializeField] private float maxSpeed;
+    [SerializeField] private AudioSource leavePlanetAudio;
 
     private Rigidbody2D _rb;
     private int _score;
@@ -41,6 +42,8 @@ public class PlayerMovement : MonoBehaviour
             speed += speedIncrement;
         else
             speed = maxSpeed;
+        
+        leavePlanetAudio.Play();
         
         directionVisual.SetActive(false);
         
