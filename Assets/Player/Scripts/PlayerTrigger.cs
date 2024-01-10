@@ -14,6 +14,8 @@ public class PlanetData
     public float maxX;
     public float minIncrementY;
     public float maxIncrementY;
+    public float yFactor = .5f;
+    public float yFactorIncrement = .01f;
     public float startY = 0f;
 }
 
@@ -132,7 +134,8 @@ public class PlayerTrigger : MonoBehaviour
     {
         planetData.startY += Random.Range(planetData.minIncrementY, planetData.maxIncrementY);
 
-        var newPos = new Vector3(Random.Range(planetData.minX, planetData.maxX), planetData.startY, 0f);
+        var newPos = new Vector3(Random.Range(planetData.minX, planetData.maxX) * planetData.yFactor, planetData.startY, 0f);
+        planetData.yFactor += planetData.yFactorIncrement;
         var newPlanetInstance = Instantiate(planetData.planet, newPos, Quaternion.identity);
         var planetRotationHandler = newPlanetInstance.GetComponent<PlanetRotation>();
         planetRotationHandler._rotationSpeed = planetRotationStart;
