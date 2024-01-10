@@ -122,8 +122,10 @@ MonoBehaviour:
   cantDie: 0
   reversed: 0
   coinRenderer: {fileID: 3305171938083040359}
+  checkToxicity: {fileID: 3691384707962301113}
   incrementSpeed: 0.2
   maxSpeed: 40
+  _rotationSpeed: 0
 --- !u!114 &314824011483810980
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -527,3 +529,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   explosion: {fileID: 187952, guid: c05e92eaee7a00844867e5edc8e0dde1, type: 3}
+  explosionSpeed: 0.4

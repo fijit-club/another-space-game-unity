@@ -34,7 +34,10 @@ public class PlayerTrigger : MonoBehaviour
     [SerializeField] private MainMenuState mainMenuState;
     [SerializeField] private float maxExplosionSpeed;
     [SerializeField] private float incrementExplosionSpeed;
-    
+    [SerializeField] private float planetRotationStart;
+    [SerializeField] private float planetRotationIncrement;
+    [SerializeField] private float planetRotationMax;
+
     private GameObject _oldPlanet;
     private Transform _currentPlanet;
     private float _rotation = 180f;
@@ -69,11 +72,6 @@ public class PlayerTrigger : MonoBehaviour
             
             if (!col.GetComponent<PlanetRotation>().cantDie)
                 planetsCrossed++;
-
-            if (GameplayHandler.ExplosionSpeed < maxExplosionSpeed)
-                GameplayHandler.ExplosionSpeed += incrementExplosionSpeed;
-            else
-                GameplayHandler.ExplosionSpeed = maxExplosionSpeed;
 
             AttachToPlanet(col);
             var planetInst = SpawnPlanet();
@@ -133,12 +131,23 @@ public class PlayerTrigger : MonoBehaviour
 
         var newPos = new Vector3(Random.Range(planetData.minX, planetData.maxX), planetData.startY, 0f);
         var newPlanetInstance = Instantiate(planetData.planet, newPos, Quaternion.identity);
+        var planetRotationHandler = newPlanetInstance.GetComponent<PlanetRotation>();
+        planetRotationHandler._rotationSpeed = planetRotationStart;
+        if (planetRotationStart < planetRotationMax)
+            planetRotationStart += planetRotationIncrement;
+        if (planetRotationHandler.reversed) planetRotationHandler._rotationSpeed *= -1;
+            
+        if (planetRotationHandler.checkToxicity.explosionSpeed < maxExplosionSpeed)
+            planetRotationHandler.checkToxicity.explosionSpeed += incrementExplosionSpeed;
+        else
+            planetRotationHandler.checkToxicity.explosionSpeed = maxExplosionSpeed;
+        
 
         int r = Random.Range(0, 2);
         if (r == 1)
         {
             _rotation = 0f;
-            newPlanetInstance.GetComponent<PlanetRotation>().reversed = true;
+            planetRotationHandler.reversed = true;
         }
         else
         {
@@ -163,7 +172,7 @@ public class PlayerTrigger : MonoBehaviour
         coinGameObject.transform.rotation = Quaternion.Euler(0.0f, 0.0f, rotationZ);
 
         _maxInclusive = Vector3.Distance(planet.position, _currentPlanet.position) - 1f;
-        coinGameObject.transform.Translate(new Vector3(Random.Range(1f, _maxInclusive), 0f, 0f));
+        coinGameObject.transform.Translate(new Vector3(Random.Range(1.3f, _maxInclusive), 0f, 0f));
 
         var pos = coinGameObject.transform.position;
         int range = Random.Range(0, 2);

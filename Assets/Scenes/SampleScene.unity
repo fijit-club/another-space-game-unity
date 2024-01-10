@@ -176,7 +176,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 8d3bf20d9e62f424ba7828f6e852d6cc, type: 2}
+  - {fileID: 2100000, guid: 75db86cbc3c0c6a48966d73edd908d8f, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -478,6 +478,9 @@ MonoBehaviour:
   mainMenuState: {fileID: 532918840}
   maxExplosionSpeed: 1
   incrementExplosionSpeed: 0.03
+  planetRotationStart: 15
+  planetRotationIncrement: 0.2
+  planetRotationMax: 40
 --- !u!1 &144323084
 GameObject:
   m_ObjectHideFlags: 0
@@ -1649,7 +1652,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 2
-  m_BackGroundColor: {r: 0.57254905, g: 0.7176471, b: 0.9176471, a: 0}
+  m_BackGroundColor: {r: 0.38431376, g: 0.5921569, b: 0.882353, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -4834,6 +4837,10 @@ PrefabInstance:
     - target: {fileID: 5721910730282589093, guid: efd32dd0e2f7fb64282e8467c83efa44, type: 3}
       propertyPath: cantDie
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5721910730282589093, guid: efd32dd0e2f7fb64282e8467c83efa44, type: 3}
+      propertyPath: _rotationSpeed
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: efd32dd0e2f7fb64282e8467c83efa44, type: 3}

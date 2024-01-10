@@ -6,10 +6,12 @@ public class CheckToxicity : MonoBehaviour
     
     private static readonly int ExplosionSpeed = Animator.StringToHash("ExplosionSpeed");
 
+    public float explosionSpeed;
+    
     private void Start()
     {
         var animator = GetComponent<Animator>();
-        animator.SetFloat(ExplosionSpeed, GameplayHandler.ExplosionSpeed);
+        animator.SetFloat(ExplosionSpeed, explosionSpeed);
     }
 
     public void Explode()

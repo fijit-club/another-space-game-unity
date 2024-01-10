@@ -6,6 +6,7 @@ public class GameStateManager : MonoBehaviour
 
     private void Start()
     {
+        print(GameplayHandler.PlanetRotationSpeed);
         CurrentState = FindObjectOfType<MainMenuState>();
         CurrentState.OnEnter();
     }
