@@ -16,6 +16,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float speedIncrement;
     [SerializeField] private float maxSpeed;
     [SerializeField] private AudioSource leavePlanetAudio;
+    [SerializeField] private TrailRenderer trail;
 
     private Rigidbody2D _rb;
     private int _score;
@@ -77,6 +78,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if (!stopMoving)
         {
+            
             if (magnetise)
             {
                 var transform1 = transform;
@@ -87,9 +89,11 @@ public class PlayerMovement : MonoBehaviour
                 transform1.rotation = Quaternion.Lerp(transform1.rotation, targetRotation, magnetStrength);
             }
             CalculateScore();
+            trail.enabled = true;
         }
         else
         {
+            trail.enabled = false;
             _rb.velocity = Vector3.zero;
             return;
         }

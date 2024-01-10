@@ -879,11 +879,11 @@ PlayerSettings:
   apiCompatibilityLevel: 6
   activeInputHandler: 0
   windowsGamepadBackendHint: 0
-  cloudProjectId: 
+  cloudProjectId: 1c2d14bb-7b3d-434c-8488-c06e663ea8e5
   framebufferDepthMemorylessMode: 0
   qualitySettingsNames: []
-  projectName: 
-  organizationId: 
+  projectName: Voyager 2.0
+  organizationId: tv4956
   cloudEnabled: 0
   legacyClampBlendShapeWeights: 0
   playerDataPath: 
