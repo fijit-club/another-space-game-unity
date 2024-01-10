@@ -479,7 +479,7 @@ MonoBehaviour:
   directionVisual: {fileID: 1704232036}
   mainMenuState: {fileID: 532918840}
   maxExplosionSpeed: 1
-  incrementExplosionSpeed: 0.03
+  incrementExplosionSpeed: 0.05
   planetRotationStart: 15
   planetRotationIncrement: 0.2
   planetRotationMax: 40
