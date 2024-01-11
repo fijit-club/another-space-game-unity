@@ -15199,6 +15199,6 @@ PrefabInstance:
     - target: {fileID: 5721910730282589093, guid: efd32dd0e2f7fb64282e8467c83efa44, type: 3}
       propertyPath: islandImages.Array.data[4]
       value: 
-      objectReference: {fileID: 21300000, guid: 2d913e5c68f91984e94c209289922f0c, type: 3}
+      objectReference: {fileID: 21300000, guid: ae2282ad710469649b49b347f2a49165, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: efd32dd0e2f7fb64282e8467c83efa44, type: 3}

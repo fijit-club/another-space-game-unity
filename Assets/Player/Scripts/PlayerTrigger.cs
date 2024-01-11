@@ -187,7 +187,7 @@ public class PlayerTrigger : MonoBehaviour
 
         if (Random.Range(0, 3) == 1 && !_currentPlanet.GetComponent<PlanetRotation>().cantDie)
         {
-            int i = Random.Range(0, 3);
+            int i = Random.Range(0, 5);
             if (i == 1)
                 CoinLocation(newPlanetInstance.transform, i);
             else
@@ -202,13 +202,13 @@ public class PlayerTrigger : MonoBehaviour
         GameObject coinGameObject;
         if (index == 1)
         {
-            coinGameObject = _currentPlanet.GetComponent<PlanetRotation>().coinRenderer.gameObject;
+            coinGameObject = _currentPlanet.GetComponent<PlanetRotation>().collectible.gameObject;
 
             coinGameObject.SetActive(true);
         }
         else
         {
-            coinGameObject = _currentPlanet.GetComponent<PlanetRotation>().collectible.gameObject;
+            coinGameObject = _currentPlanet.GetComponent<PlanetRotation>().coinRenderer.gameObject;
             coinGameObject.SetActive(true);
         }
 
