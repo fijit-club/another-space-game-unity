@@ -2,7 +2,8 @@ const plugin = {
   setScore: function (score) {
     try {
       const data = { event: 'SET_SCORE', payload: { score } };
-      window.ReactNativeWebView.postMessage(JSON.stringify(data));
+      if(window.ReactNativeWebView) window.ReactNativeWebView.postMessage(JSON.stringify(data));
+	    if(window.dispatchReactUnityEvent) window.dispatchReactUnityEvent('gameEvent', JSON.stringify(data));
     } catch (e) {
       console.warn('Failed to dispatch event');
     }
@@ -10,7 +11,8 @@ const plugin = {
   vibrate: function (isLong) {
     try {
       const data = { event: 'VIBRATE', payload: { isLong } };
-      window.ReactNativeWebView.postMessage(JSON.stringify(data));
+      if(window.ReactNativeWebView) window.ReactNativeWebView.postMessage(JSON.stringify(data));
+	    if(window.dispatchReactUnityEvent) window.dispatchReactUnityEvent('gameEvent', JSON.stringify(data));
     } catch (e) {
       console.warn('Failed to dispatch event');
     }
@@ -18,7 +20,8 @@ const plugin = {
   restart: function () {
     try {
       const data = { event: 'RESTART' };
-      window.ReactNativeWebView.postMessage(JSON.stringify(data));
+      if(window.ReactNativeWebView) window.ReactNativeWebView.postMessage(JSON.stringify(data));
+	    if(window.dispatchReactUnityEvent) window.dispatchReactUnityEvent('gameEvent', JSON.stringify(data));
     } catch (e) {
       console.warn('Failed to dispatch event');
     }
@@ -27,7 +30,8 @@ const plugin = {
     try {
       assetId = UTF8ToString(assetId);
       const data = { event: 'BUY_ASSET', payload: { assetId } };
-      window.ReactNativeWebView.postMessage(JSON.stringify(data));
+      if(window.ReactNativeWebView) window.ReactNativeWebView.postMessage(JSON.stringify(data));
+	    if(window.dispatchReactUnityEvent) window.dispatchReactUnityEvent('gameEvent', JSON.stringify(data));
     } catch (e) {
       console.warn('Failed to post message');
     }
@@ -35,7 +39,8 @@ const plugin = {
   updateCoins: function (coinsChange) {
     try {
       const data = { event: 'UPDATE_COINS', payload: coinsChange };
-      window.ReactNativeWebView.postMessage(JSON.stringify(data));
+      if(window.ReactNativeWebView) window.ReactNativeWebView.postMessage(JSON.stringify(data));
+	    if(window.dispatchReactUnityEvent) window.dispatchReactUnityEvent('gameEvent', JSON.stringify(data));
     } catch (e) {
       console.warn('Failed to post message');
     }
@@ -43,7 +48,8 @@ const plugin = {
   updateExp: function (expChange) {
     try {
       const data = { event: 'UPDATE_EXP', payload: { expChange } };
-      window.ReactNativeWebView.postMessage(JSON.stringify(data));
+      if(window.ReactNativeWebView) window.ReactNativeWebView.postMessage(JSON.stringify(data));
+	    if(window.dispatchReactUnityEvent) window.dispatchReactUnityEvent('gameEvent', JSON.stringify(data));
     } catch (e) {
       console.warn('Failed to post message');
     }
@@ -51,7 +57,8 @@ const plugin = {
   load: function () {
     try {
       const data = { event: 'LOAD' };
-      window.ReactNativeWebView.postMessage(JSON.stringify(data));
+      if(window.ReactNativeWebView) window.ReactNativeWebView.postMessage(JSON.stringify(data));
+	    if(window.dispatchReactUnityEvent) window.dispatchReactUnityEvent('gameEvent', JSON.stringify(data));
     } catch (e) {
       console.warn('Failed to post message');
     }
