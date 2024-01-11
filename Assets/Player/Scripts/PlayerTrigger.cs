@@ -49,6 +49,7 @@ public class PlayerTrigger : MonoBehaviour
     private float _maxInclusive;
     private Transform _nextPlanet;
     private int _coins;
+    private float lastX;
 
     public void ResetCoins()
     {
@@ -156,9 +157,14 @@ public class PlayerTrigger : MonoBehaviour
 
     private Transform SpawnPlanet()
     {
+        if (playerMovement.score > 2000)
+            planetData.maxIncrementY = 5f;
+        
         planetData.startY += Random.Range(planetData.minIncrementY, planetData.maxIncrementY);
 
-        var newPos = new Vector3(Random.Range(planetData.minX, planetData.maxX) * planetData.yFactor, planetData.startY, 0f);
+        float planetDataYFactor = Random.Range(planetData.minX, planetData.maxX) * planetData.yFactor;
+        var newPos = new Vector3(planetDataYFactor + lastX, planetData.startY, 0f);
+        lastX = newPos.x;
         if (planetData.yFactor < planetData.yFactorMax)
             planetData.yFactor += planetData.yFactorIncrement;
         var newPlanetInstance = Instantiate(planetData.planet, newPos, Quaternion.identity);

@@ -16,7 +16,7 @@ public class CheckToxicity : MonoBehaviour
 
     public void Explode()
     {
-        if (transform.parent.childCount > 3)
+        if (transform.parent.childCount > 1)
         {
             var player = FindObjectOfType<PlayerTrigger>();
             player.transform.parent = null;

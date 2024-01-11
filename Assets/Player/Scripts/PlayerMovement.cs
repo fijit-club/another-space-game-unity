@@ -69,7 +69,7 @@ public class PlayerMovement : MonoBehaviour
         if (_time > .05f)
         {
             _time = 0f;
-            score++;
+            score += 10;
             scoreText.text = score.ToString();
         }
     }
