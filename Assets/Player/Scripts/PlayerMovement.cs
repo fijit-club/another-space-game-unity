@@ -18,7 +18,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private AudioSource leavePlanetAudio;
 
     private Rigidbody2D _rb;
-    private int _score;
+    public int score;
     private float _time;
 
     private void Start()
@@ -29,7 +29,7 @@ public class PlayerMovement : MonoBehaviour
     public void ResetScore()
     {
         scoreText.text = "0";
-        _score = 0;
+        score = 0;
         playerTrigger.ResetCoins();
         speed = 15;
     }
@@ -69,8 +69,8 @@ public class PlayerMovement : MonoBehaviour
         if (_time > .05f)
         {
             _time = 0f;
-            _score++;
-            scoreText.text = _score.ToString();
+            score++;
+            scoreText.text = score.ToString();
         }
     }
     

@@ -128,6 +128,8 @@ public class PlayerTrigger : MonoBehaviour
         if (GameStateManager.CurrentState == mainMenuState) return;
         gameObject.SetActive(false);
         playerVisual.SetActive(false);
+        Bridge.GetInstance().UpdateCoins(_coins);
+        Bridge.GetInstance().SendScore(playerMovement.score);
         GameStateManager.ChangeState(gameOverState);
     }
 
@@ -216,7 +218,7 @@ public class PlayerTrigger : MonoBehaviour
         float rotationZ = Mathf.Atan2(difference.y, difference.x) * Mathf.Rad2Deg;
         coinGameObject.transform.rotation = Quaternion.Euler(0.0f, 0.0f, rotationZ);
 
-        _maxInclusive = Vector3.Distance(planet.position, _currentPlanet.position) - 2f;
+        _maxInclusive = Vector3.Distance(planet.position, _currentPlanet.position) - 1f;
         coinGameObject.transform.Translate(new Vector3(Random.Range(2f, _maxInclusive), 0f, 0f));
 
         var pos = coinGameObject.transform.position;
