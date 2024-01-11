@@ -8,6 +8,7 @@ TagManager:
   - DeadZone
   - Missile
   - Coin
+  - Collectible
   layers:
   - Default
   - TransparentFX

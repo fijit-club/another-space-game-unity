@@ -489,6 +489,11 @@ MonoBehaviour:
   planetRotationIncrement: 0.05
   planetRotationMax: 40
   landPlanet: {fileID: 1214083753}
+  abilities:
+  - {fileID: 362795892}
+  - {fileID: 1010414512}
+  - {fileID: 369068442}
+  - {fileID: 968985531}
 --- !u!1 &144323084
 GameObject:
   m_ObjectHideFlags: 0
@@ -821,7 +826,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &243163463
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1289,6 +1294,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   abilityButton: {fileID: 2022300271}
+  abilityTime: 5
   animationName: 
   reducedTime: 0.6
 --- !u!1 &369068440
@@ -1336,6 +1342,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   abilityButton: {fileID: 2022300271}
+  abilityTime: 5
   shorterAim: {fileID: 197894344}
   longerAim: {fileID: 1515754044}
 --- !u!1 &372687407
@@ -2645,6 +2652,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   abilityButton: {fileID: 2022300271}
+  abilityTime: 5
   playerTrigger: {fileID: 127606305}
 --- !u!1 &989033391
 GameObject:
@@ -2797,6 +2805,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   abilityButton: {fileID: 2022300271}
+  abilityTime: 5
   playerMovement: {fileID: 127606304}
   magnetStrength: 0.1
 --- !u!1 &1018093977
@@ -5182,7 +5191,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2098191241
 RectTransform:
   m_ObjectHideFlags: 0
@@ -5314,7 +5323,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2122836788
 RectTransform:
   m_ObjectHideFlags: 0

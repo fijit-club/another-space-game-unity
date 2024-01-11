@@ -8,6 +8,7 @@ public class SlowTimeAbility : Ability
     public override void TriggerAbility()
     {
         Time.timeScale = reducedTime;
+        StartCoroutine(DisableCounter());
     }
 
     public override void DisableAbility()

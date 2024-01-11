@@ -10,6 +10,7 @@ public class CancelExplosion : Ability
         var currentPlanet = playerTrigger.transform.parent;
         if (currentPlanet != null)
             currentPlanet.GetChild(0).gameObject.SetActive(false);
+        StartCoroutine(DisableCounter());
     }
 
     public override void DisableAbility()

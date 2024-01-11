@@ -9,6 +9,7 @@ public class BetterAim : Ability
     {
         shorterAim.SetActive(false);
         longerAim.SetActive(true);
+        StartCoroutine(DisableCounter());
     }
 
     public override void DisableAbility()

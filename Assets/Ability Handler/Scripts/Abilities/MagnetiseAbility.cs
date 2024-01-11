@@ -9,6 +9,7 @@ public class MagnetiseAbility : Ability
     {
         playerMovement.magnetStrength = magnetStrength;
         playerMovement.magnetise = true;
+        StartCoroutine(DisableCounter());
     }
 
     public override void DisableAbility()

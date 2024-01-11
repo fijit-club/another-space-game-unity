@@ -41,7 +41,8 @@ public class PlayerTrigger : MonoBehaviour
     [SerializeField] private float planetRotationIncrement;
     [SerializeField] private float planetRotationMax;
     [SerializeField] private AudioSource landPlanet;
-
+    [SerializeField] private Ability[] abilities;
+    
     private GameObject _oldPlanet;
     private Transform _currentPlanet;
     private float _rotation = 180f;
@@ -101,6 +102,16 @@ public class PlayerTrigger : MonoBehaviour
             Destroy(col.gameObject);
             _coins++;
             coinsText.text = _coins.ToString();
+        }
+        else if (col.CompareTag("Collectible"))
+        {
+            Vector3 difference = _nextPlanet.position - transform.position;
+            float rotationZ = Mathf.Atan2(difference.y, difference.x) * Mathf.Rad2Deg;
+            transform.rotation = Quaternion.Euler(0.0f, 0.0f, rotationZ - 90f);
+            Destroy(col.gameObject);
+
+            int abilityIndex = col.GetComponent<Collectible>().abilityIndex;
+            abilities[abilityIndex].TriggerAbility();
         }
     }
 
@@ -165,18 +176,34 @@ public class PlayerTrigger : MonoBehaviour
         if (planetRotationHandler.reversed) planetRotationHandler._rotationSpeed *= -1;
 
         mainMenuComponents.planets.Add(newPlanetInstance);
-        
+
         if (Random.Range(0, 3) == 1 && !_currentPlanet.GetComponent<PlanetRotation>().cantDie)
-            CoinLocation(newPlanetInstance.transform);
+        {
+            int i = Random.Range(0, 3);
+            if (i == 1)
+                CoinLocation(newPlanetInstance.transform, i);
+            else
+                CoinLocation(newPlanetInstance.transform, i);
+        }
         
         return newPlanetInstance.transform;
     }
 
-    private void CoinLocation(Transform planet)
+    private void CoinLocation(Transform planet, int index)
     {
-        var coinGameObject = _currentPlanet.GetComponent<PlanetRotation>().coinRenderer.gameObject;
-        coinGameObject.SetActive(true);
-        
+        GameObject coinGameObject;
+        if (index == 1)
+        {
+            coinGameObject = _currentPlanet.GetComponent<PlanetRotation>().coinRenderer.gameObject;
+
+            coinGameObject.SetActive(true);
+        }
+        else
+        {
+            coinGameObject = _currentPlanet.GetComponent<PlanetRotation>().collectible.gameObject;
+            coinGameObject.SetActive(true);
+        }
+
         Vector3 difference = planet.position - coinGameObject.transform.position;
         float rotationZ = Mathf.Atan2(difference.y, difference.x) * Mathf.Rad2Deg;
         coinGameObject.transform.rotation = Quaternion.Euler(0.0f, 0.0f, rotationZ);
