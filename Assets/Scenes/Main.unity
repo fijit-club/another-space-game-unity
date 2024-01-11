@@ -446,7 +446,7 @@ MonoBehaviour:
   scoreText: {fileID: 624439072}
   playerTrigger: {fileID: 127606305}
   directionVisual: {fileID: 1704232035}
-  speedIncrement: 1
+  speedIncrement: 0
   maxSpeed: 40
   leavePlanetAudio: {fileID: 1222384849}
   trail: {fileID: 1182594017}
