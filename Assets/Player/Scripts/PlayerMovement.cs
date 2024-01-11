@@ -16,7 +16,8 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float speedIncrement;
     [SerializeField] private float maxSpeed;
     [SerializeField] private AudioSource leavePlanetAudio;
-
+    [SerializeField] private GameObject redBorder;
+    
     private Rigidbody2D _rb;
     public int score;
     private float _time;
@@ -38,6 +39,8 @@ public class PlayerMovement : MonoBehaviour
     {
         if (transform.parent == null) return;
         var transform1 = transform;
+        
+        redBorder.SetActive(false);
 
         if (speed < maxSpeed)
             speed += speedIncrement;

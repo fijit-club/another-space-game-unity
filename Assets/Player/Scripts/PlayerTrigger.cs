@@ -42,6 +42,7 @@ public class PlayerTrigger : MonoBehaviour
     [SerializeField] private float planetRotationMax;
     [SerializeField] private AudioSource landPlanet;
     [SerializeField] private Ability[] abilities;
+    [SerializeField] private Animator redBorder;
     
     private GameObject _oldPlanet;
     private Transform _currentPlanet;
@@ -50,6 +51,7 @@ public class PlayerTrigger : MonoBehaviour
     private Transform _nextPlanet;
     private int _coins;
     private float lastX;
+    private static readonly int Factor = Animator.StringToHash("FACTOR");
 
     public void ResetCoins()
     {
@@ -64,6 +66,11 @@ public class PlayerTrigger : MonoBehaviour
     {
         if (col.CompareTag("Planet"))
         {
+            redBorder.gameObject.SetActive(true);
+            var planetRot = col.GetComponent<PlanetRotation>();
+            var explosionSpeed = planetRot.checkToxicity.explosionSpeed;
+            redBorder.SetFloat(Factor, explosionSpeed);
+            
             if (!col.GetComponent<PlanetRotation>().cantDie && !savePlanetAbility)
                 col.transform.GetChild(0).gameObject.SetActive(true);
 
