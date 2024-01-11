@@ -22,6 +22,7 @@ public class PlanetData
 
 public class PlayerTrigger : MonoBehaviour
 {
+    public bool abilityEnabled;
     public List<GameObject> planets = new List<GameObject>();
     public PlanetData planetData;
     public int planetsCrossed;
@@ -43,6 +44,8 @@ public class PlayerTrigger : MonoBehaviour
     [SerializeField] private AudioSource landPlanet;
     [SerializeField] private Ability[] abilities;
     [SerializeField] private Animator redBorder;
+    [SerializeField] private AudioSource coinCollect;
+    [SerializeField] private AudioSource abilityCollect;
     
     private GameObject _oldPlanet;
     private Transform _currentPlanet;
@@ -60,6 +63,8 @@ public class PlayerTrigger : MonoBehaviour
         coinsText.text = "0";
         _coins = 0;
         _rotation = 180f;
+        lastX = 0f;
+        planetData.maxIncrementY = 3f;
     }
     
     private void OnTriggerEnter2D(Collider2D col)
@@ -111,6 +116,8 @@ public class PlayerTrigger : MonoBehaviour
                 transform.rotation = Quaternion.Euler(0.0f, 0.0f, rotationZ - 90f);
             }
 
+            coinCollect.Play();
+            
             Destroy(col.gameObject);
             _coins++;
             coinsText.text = _coins.ToString();
@@ -123,7 +130,7 @@ public class PlayerTrigger : MonoBehaviour
                 float rotationZ = Mathf.Atan2(difference.y, difference.x) * Mathf.Rad2Deg;
                 transform.rotation = Quaternion.Euler(0.0f, 0.0f, rotationZ - 90f);
             }
-
+            abilityCollect.Play();
             Destroy(col.gameObject);
 
             int abilityIndex = col.GetComponent<Collectible>().abilityIndex;

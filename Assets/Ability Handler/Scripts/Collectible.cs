@@ -8,6 +8,7 @@ public class Collectible : MonoBehaviour
     
     private void Start()
     {
+        if (FindObjectOfType<PlayerTrigger>().abilityEnabled) gameObject.SetActive(false);
         int r = Random.Range(0, sprites.Length);
         abilityIndex = r;
         GetComponent<SpriteRenderer>().sprite = sprites[r];
