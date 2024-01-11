@@ -96,18 +96,26 @@ public class PlayerTrigger : MonoBehaviour
         }
         else if (col.CompareTag("Coin"))
         {
-            Vector3 difference = _nextPlanet.position - transform.position;
-            float rotationZ = Mathf.Atan2(difference.y, difference.x) * Mathf.Rad2Deg;
-            transform.rotation = Quaternion.Euler(0.0f, 0.0f, rotationZ - 90f);
+            if (!playerMovement.stopMoving)
+            {
+                Vector3 difference = _nextPlanet.position - transform.position;
+                float rotationZ = Mathf.Atan2(difference.y, difference.x) * Mathf.Rad2Deg;
+                transform.rotation = Quaternion.Euler(0.0f, 0.0f, rotationZ - 90f);
+            }
+
             Destroy(col.gameObject);
             _coins++;
             coinsText.text = _coins.ToString();
         }
         else if (col.CompareTag("Collectible"))
         {
-            Vector3 difference = _nextPlanet.position - transform.position;
-            float rotationZ = Mathf.Atan2(difference.y, difference.x) * Mathf.Rad2Deg;
-            transform.rotation = Quaternion.Euler(0.0f, 0.0f, rotationZ - 90f);
+            if (!playerMovement.stopMoving)
+            {
+                Vector3 difference = _nextPlanet.position - transform.position;
+                float rotationZ = Mathf.Atan2(difference.y, difference.x) * Mathf.Rad2Deg;
+                transform.rotation = Quaternion.Euler(0.0f, 0.0f, rotationZ - 90f);
+            }
+
             Destroy(col.gameObject);
 
             int abilityIndex = col.GetComponent<Collectible>().abilityIndex;
@@ -208,7 +216,7 @@ public class PlayerTrigger : MonoBehaviour
         float rotationZ = Mathf.Atan2(difference.y, difference.x) * Mathf.Rad2Deg;
         coinGameObject.transform.rotation = Quaternion.Euler(0.0f, 0.0f, rotationZ);
 
-        _maxInclusive = Vector3.Distance(planet.position, _currentPlanet.position) - 1f;
+        _maxInclusive = Vector3.Distance(planet.position, _currentPlanet.position) - 2f;
         coinGameObject.transform.Translate(new Vector3(Random.Range(2f, _maxInclusive), 0f, 0f));
 
         var pos = coinGameObject.transform.position;
