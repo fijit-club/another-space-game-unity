@@ -71,13 +71,14 @@ public class PlayerTrigger : MonoBehaviour
     {
         if (col.CompareTag("Planet"))
         {
-            redBorder.gameObject.SetActive(true);
-            var planetRot = col.GetComponent<PlanetRotation>();
-            var explosionSpeed = planetRot.checkToxicity.explosionSpeed;
-            redBorder.SetFloat(Factor, explosionSpeed);
-            
             if (!col.GetComponent<PlanetRotation>().cantDie && !savePlanetAbility)
+            {
                 col.transform.GetChild(0).gameObject.SetActive(true);
+                redBorder.gameObject.SetActive(true);
+                var planetRot = col.GetComponent<PlanetRotation>();
+                var explosionSpeed = planetRot.checkToxicity.explosionSpeed;
+                redBorder.SetFloat(Factor, explosionSpeed);
+            }
 
             _currentPlanet = col.transform;
             

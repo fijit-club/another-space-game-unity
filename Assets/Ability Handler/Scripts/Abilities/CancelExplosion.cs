@@ -3,6 +3,7 @@ using UnityEngine;
 public class CancelExplosion : Ability
 {
     [SerializeField] private PlayerTrigger playerTrigger;
+    [SerializeField] private GameObject redBorder;
     
     public override void TriggerAbility()
     {
@@ -10,6 +11,7 @@ public class CancelExplosion : Ability
         var currentPlanet = playerTrigger.transform.parent;
         if (currentPlanet != null)
             currentPlanet.GetChild(0).gameObject.SetActive(false);
+        redBorder.SetActive(false);
         StartCoroutine(DisableCounter());
     }
 

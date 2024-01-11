@@ -12850,6 +12850,7 @@ MonoBehaviour:
   abilitySprite: {fileID: 21300000, guid: 5ba95f543299ce648bdd85e586ab16c9, type: 3}
   _playerTrigger: {fileID: 127606305}
   playerTrigger: {fileID: 127606305}
+  redBorder: {fileID: 406124069}
 --- !u!1 &989033391
 GameObject:
   m_ObjectHideFlags: 0
