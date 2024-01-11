@@ -209,7 +209,7 @@ public class PlayerTrigger : MonoBehaviour
         coinGameObject.transform.rotation = Quaternion.Euler(0.0f, 0.0f, rotationZ);
 
         _maxInclusive = Vector3.Distance(planet.position, _currentPlanet.position) - 1f;
-        coinGameObject.transform.Translate(new Vector3(Random.Range(1.3f, _maxInclusive), 0f, 0f));
+        coinGameObject.transform.Translate(new Vector3(Random.Range(2f, _maxInclusive), 0f, 0f));
 
         var pos = coinGameObject.transform.position;
         int range = Random.Range(0, 2);
