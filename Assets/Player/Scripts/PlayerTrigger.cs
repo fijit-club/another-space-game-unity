@@ -126,7 +126,7 @@ public class PlayerTrigger : MonoBehaviour
             coinCollect.Play();
             
             Destroy(col.gameObject);
-            _coins++;
+            _coins+=5;
             coinsText.text = _coins.ToString();
         }
         else if (col.CompareTag("Collectible"))
