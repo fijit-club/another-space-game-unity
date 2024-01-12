@@ -1,3 +1,4 @@
+using SpaceEscape;
 using UnityEngine;
 
 [RequireComponent(typeof(PlayingState))]
@@ -16,6 +17,7 @@ public class BasicPlayingStateComponents : InGameComponents
     
     public override void EnteredState()
     {
+        Bridge.GetInstance().VibrateBridge(true);
         playerTrigger.planets.Clear();
         playerTrigger.planetsCrossed = 0;
         cameraController.CameraStart();

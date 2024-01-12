@@ -174,6 +174,18 @@ namespace SpaceEscape
 #endif
             }
         }
+        
+        public void VibrateBridge(bool isLong)
+        {
+#if UNITY_WEBGL && !UNITY_EDITOR
+    if(thisPlayerInfo.volumeBg)
+      vibrate(isLong);
+#endif
+#if UNITY_EDITOR
+            if (thisPlayerInfo.volumeBg)
+                Debug.Log("vibrating device " + isLong);
+#endif
+        }
 
         public void SendScore(int score)
         {

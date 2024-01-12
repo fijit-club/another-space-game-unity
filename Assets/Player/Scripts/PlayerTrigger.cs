@@ -80,6 +80,8 @@ public class PlayerTrigger : MonoBehaviour
                 redBorder.SetFloat(Factor, explosionSpeed);
             }
 
+            Bridge.GetInstance().VibrateBridge(false);
+            
             _currentPlanet = col.transform;
             
             directionVisual.gameObject.SetActive(true);
