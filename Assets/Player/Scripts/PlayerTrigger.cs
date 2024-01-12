@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using SpaceEscape;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 using Random = UnityEngine.Random;
 
 [Serializable]
@@ -46,6 +47,8 @@ public class PlayerTrigger : MonoBehaviour
     [SerializeField] private Animator redBorder;
     [SerializeField] private AudioSource coinCollect;
     [SerializeField] private AudioSource abilityCollect;
+    [SerializeField] private GameObject abilitiesUI;
+    [SerializeField] private PurchaseAbility purchaseAbility;
     
     private GameObject _oldPlanet;
     private Transform _currentPlanet;
@@ -137,11 +140,23 @@ public class PlayerTrigger : MonoBehaviour
                 float rotationZ = Mathf.Atan2(difference.y, difference.x) * Mathf.Rad2Deg;
                 transform.rotation = Quaternion.Euler(0.0f, 0.0f, rotationZ - 90f);
             }
+
             abilityCollect.Play();
             Destroy(col.gameObject);
 
             int abilityIndex = col.GetComponent<Collectible>().abilityIndex;
             abilities[abilityIndex].TriggerAbility();
+            for (int i = 0; i < abilitiesUI.transform.childCount; i++)
+                abilitiesUI.transform.GetChild(i).GetComponent<Button>().interactable = false;
+        }
+    }
+
+    public void DisabledAbility()
+    {
+        for (int i = 0; i < abilitiesUI.transform.childCount; i++)
+        {
+            if (purchaseAbility.purchasedAbilitiesIDs.Contains(i))
+                abilitiesUI.transform.GetChild(i).GetComponent<Button>().interactable = true;
         }
     }
 
@@ -227,9 +242,9 @@ public class PlayerTrigger : MonoBehaviour
         {
             int i = Random.Range(0, 5);
             if (i == 1)
-                CoinLocation(newPlanetInstance.transform, i);
+                CoinLocation(newPlanetInstance.transform, 1);
             else
-                CoinLocation(newPlanetInstance.transform, i);
+                CoinLocation(newPlanetInstance.transform, 1);
         }
         
         return newPlanetInstance.transform;

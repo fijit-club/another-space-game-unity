@@ -80,6 +80,7 @@ namespace SpaceEscape
         [SerializeField] private GameOverMenu gameOverMenu;
         [SerializeField] private TMP_Text highscoreText;
         [SerializeField] private TMP_Text highscoreText2;
+        [SerializeField] private PurchaseAbility purchaseAbility;
         
 #if UNITY_WEBGL && !UNITY_EDITOR
         [DllImport("__Internal")]
@@ -229,6 +230,8 @@ namespace SpaceEscape
             highscoreText.text = thisPlayerInfo.highScore.ToString();
             highscoreText2.text = thisPlayerInfo.highScore.ToString();
 
+            purchaseAbility.CheckAbilities();
+            
             if (thisPlayerInfo.volumeSfx)
             {
                 Silence("false");

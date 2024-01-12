@@ -21,6 +21,7 @@ public abstract class Ability : MonoBehaviour
         abilityImage.sprite = abilitySprite;
         yield return new WaitForSeconds(abilityTime);
         DisableAbility();
+        _playerTrigger.DisabledAbility();
         _playerTrigger.abilityEnabled = false;
         abilityNameText.gameObject.SetActive(false);
     }
