@@ -26,6 +26,7 @@ public class PlayerTrigger : MonoBehaviour
     public List<GameObject> planets = new List<GameObject>();
     public PlanetData planetData;
     public int planetsCrossed;
+    public int planetsCrossedActual;
     public bool savePlanetAbility;
     
     [SerializeField] private PlayerMovement playerMovement;
@@ -96,7 +97,11 @@ public class PlayerTrigger : MonoBehaviour
             }
             
             if (!col.GetComponent<PlanetRotation>().cantDie)
+            {
                 planetsCrossed++;
+                planetsCrossedActual++;
+
+            }
 
             AttachToPlanet(col);
             var planetInst = SpawnPlanet();
@@ -106,7 +111,7 @@ public class PlayerTrigger : MonoBehaviour
             
             UpdateCameraLocation(col.transform, planetInst.transform);
 
-            if(planetsCrossed%5==0 && planetsCrossed!=0)
+            if(planetsCrossedActual%5==0 && planetsCrossedActual!=0)
             TauntController.instance.ShowHappyTaunt();
 
         }
