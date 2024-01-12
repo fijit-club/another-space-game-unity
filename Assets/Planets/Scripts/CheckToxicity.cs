@@ -27,4 +27,6 @@ public class CheckToxicity : MonoBehaviour
         Destroy(explosionInstance, 2f);
         Destroy(transform.parent.gameObject);
     }
+
+    
 }

@@ -103,6 +103,10 @@ public class PlayerTrigger : MonoBehaviour
             planets.Add(planetInst.gameObject);
             
             UpdateCameraLocation(col.transform, planetInst.transform);
+
+            if(Random.value>0.75f)
+            TauntController.instance.ShowHappyTaunt();
+
         }
         else if (col.CompareTag("DeadZone"))
         {
@@ -147,6 +151,8 @@ public class PlayerTrigger : MonoBehaviour
         Bridge.GetInstance().UpdateCoins(_coins);
         Bridge.GetInstance().SendScore(playerMovement.score);
         GameStateManager.ChangeState(gameOverState);
+
+        TauntController.instance.ShowEndTaunt();
     }
 
     private void AttachToPlanet(Collider2D col)

@@ -35,12 +35,12 @@ public class TauntController : MonoBehaviour
         audioSource.PlayOneShot(currentClip);
     }
 
-    public void PlayTauntHappy()
+     void PlayTauntHappy()
     {
         audioSource.PlayOneShot(tauntSoundsHappy[Random.Range(0, tauntSoundsHappy.Count)]);
 
     }
-    public void PlayTauntAngry()
+     void PlayTauntAngry()
     {
         audioSource.PlayOneShot(tauntSoundsAngry[Random.Range(0, tauntSoundsAngry.Count)]);
 
@@ -71,6 +71,7 @@ public class TauntController : MonoBehaviour
         tauntAnimator.SetBool("HappyHawking", true);
         PlayTauntHappy();
         Invoke("DisableHappyTaunt", 0.1f);
+        Debug.Log("tets end "); 
     }
 
     public void DisableHappyTaunt()
@@ -98,7 +99,7 @@ public class TauntController : MonoBehaviour
         angryImage.sprite = spritesAngry[Random.Range(0, spritesAngry.Count)];
         tauntAnimator.SetBool("GameOver", true);
         PlayAudio(endAudio);
-        Invoke("DisableAngryTaunt", 0.1f);
+        Invoke("DisableEndTaunt", 0.1f);
     }
 
     public void DisableEndTaunt()
