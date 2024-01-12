@@ -85,13 +85,13 @@ public class TauntController : MonoBehaviour
         angryImage.sprite = spritesAngry[Random.Range(0, spritesAngry.Count)];
         tauntAnimator.SetBool("AngryCop", true);
         PlayTauntAngry();
-        Invoke("DisableAngryTaunt", 0.1f);
+        Invoke("DisableAngryTaunt", 0.75f);
     }
 
     public void DisableAngryTaunt()
     {
         tauntAnimator.SetBool("AngryCop", false) ;
-
+        audioSource.Stop();
     } 
     
     public void ShowEndTaunt()

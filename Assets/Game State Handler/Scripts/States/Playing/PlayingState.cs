@@ -6,8 +6,14 @@ public class PlayingState : MonoBehaviour, IState
     
     public void OnEnter()
     {
+        Invoke("StartGame", 3f);
+    }
+
+    void StartGame()
+    {
         foreach (var playingStateComponent in playingStateComponents)
             playingStateComponent.EnteredState();
+
     }
 
     public void StateUpdate()

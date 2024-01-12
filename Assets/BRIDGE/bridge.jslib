@@ -3,9 +3,9 @@ const plugin = {
     try {
       const data = { event: 'SET_SCORE', payload: { score } };
       if(window.ReactNativeWebView) window.ReactNativeWebView.postMessage(JSON.stringify(data));
-	    if(window.dispatchReactUnityEvent) window.dispatchReactUnityEvent('gameEvent', JSON.stringify(data));
+	  if(window.dispatchReactUnityEvent) window.dispatchReactUnityEvent('gameEvent', JSON.stringify(data));
     } catch (e) {
-      console.warn('Failed to dispatch event');
+      console.warn('Failed to dispatch event ',e);
     }
   },
   vibrate: function (isLong) {
@@ -14,7 +14,7 @@ const plugin = {
       if(window.ReactNativeWebView) window.ReactNativeWebView.postMessage(JSON.stringify(data));
 	    if(window.dispatchReactUnityEvent) window.dispatchReactUnityEvent('gameEvent', JSON.stringify(data));
     } catch (e) {
-      console.warn('Failed to dispatch event');
+      console.warn('Failed to dispatch event ',e);
     }
   },
   restart: function () {
@@ -23,7 +23,7 @@ const plugin = {
       if(window.ReactNativeWebView) window.ReactNativeWebView.postMessage(JSON.stringify(data));
 	    if(window.dispatchReactUnityEvent) window.dispatchReactUnityEvent('gameEvent', JSON.stringify(data));
     } catch (e) {
-      console.warn('Failed to dispatch event');
+      console.warn('Failed to dispatch event ',e);
     }
   },
   buyAsset: function (assetId) {
@@ -33,7 +33,7 @@ const plugin = {
       if(window.ReactNativeWebView) window.ReactNativeWebView.postMessage(JSON.stringify(data));
 	    if(window.dispatchReactUnityEvent) window.dispatchReactUnityEvent('gameEvent', JSON.stringify(data));
     } catch (e) {
-      console.warn('Failed to post message');
+      console.warn('Failed to post message ',e);
     }
   },
   updateCoins: function (coinsChange) {
@@ -42,7 +42,7 @@ const plugin = {
       if(window.ReactNativeWebView) window.ReactNativeWebView.postMessage(JSON.stringify(data));
 	    if(window.dispatchReactUnityEvent) window.dispatchReactUnityEvent('gameEvent', JSON.stringify(data));
     } catch (e) {
-      console.warn('Failed to post message');
+      console.warn('Failed to post message ',e);
     }
   },
   updateExp: function (expChange) {
@@ -51,7 +51,7 @@ const plugin = {
       if(window.ReactNativeWebView) window.ReactNativeWebView.postMessage(JSON.stringify(data));
 	    if(window.dispatchReactUnityEvent) window.dispatchReactUnityEvent('gameEvent', JSON.stringify(data));
     } catch (e) {
-      console.warn('Failed to post message');
+      console.warn('Failed to post message ',e);
     }
   },
   load: function () {
@@ -60,7 +60,7 @@ const plugin = {
       if(window.ReactNativeWebView) window.ReactNativeWebView.postMessage(JSON.stringify(data));
 	    if(window.dispatchReactUnityEvent) window.dispatchReactUnityEvent('gameEvent', JSON.stringify(data));
     } catch (e) {
-      console.warn('Failed to post message');
+      console.warn('Failed to post message ',e);
     }
   },
 };
