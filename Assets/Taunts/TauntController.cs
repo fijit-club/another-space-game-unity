@@ -29,7 +29,7 @@ public class TauntController : MonoBehaviour
     void Start()
     {
         instance = this;
-        audioSourceBG.Play();
+//        audioSourceBG.Play();
     }
 
     public void PlayAudio(AudioClip currentClip)
