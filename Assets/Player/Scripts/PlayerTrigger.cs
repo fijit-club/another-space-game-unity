@@ -150,11 +150,18 @@ public class PlayerTrigger : MonoBehaviour
         if (GameStateManager.CurrentState == mainMenuState) return;
         gameObject.SetActive(false);
         playerVisual.SetActive(false);
-        Bridge.GetInstance().UpdateCoins(_coins);
-        Bridge.GetInstance().SendScore(playerMovement.score);
         GameStateManager.ChangeState(gameOverState);
 
         TauntController.instance.ShowEndTaunt();
+        Invoke("SendScore", 3f);
+
+    }
+
+    void SendScore()
+    {
+        Bridge.GetInstance().UpdateCoins(_coins);
+        Bridge.GetInstance().SendScore(playerMovement.score);
+
     }
 
     private void AttachToPlanet(Collider2D col)
