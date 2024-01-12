@@ -6907,7 +6907,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 4401c05bcfa6d0d42908b9798eeb12dd, type: 3}
   tauntSoundsAngry:
   - {fileID: 8300000, guid: 0a3770f604307df4088ce09fd2c5c8e2, type: 3}
-  endAudio: {fileID: 0}
+  endAudio: {fileID: 8300000, guid: ace96ed929e2d4f45bfb6474300538eb, type: 3}
   audioSource: {fileID: 419967899}
   audioSourceBG: {fileID: 0}
   tauntAnimator: {fileID: 419967894}
@@ -7359,7 +7359,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameObjectsToEnable:
   - {fileID: 1274556800}
-  - {fileID: 569164595}
   componentsToEnable: []
   gameObjectsToDisable:
   - {fileID: 1291731952}
@@ -7440,7 +7439,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: bfd641f8992b40249acbfb82fb28f355, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.2
+  m_Volume: 0.1
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -17048,7 +17047,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:

@@ -104,7 +104,7 @@ public class PlayerTrigger : MonoBehaviour
             
             UpdateCameraLocation(col.transform, planetInst.transform);
 
-            if(Random.value>0.75f)
+            if(planetsCrossed%5==0)
             TauntController.instance.ShowHappyTaunt();
 
         }
