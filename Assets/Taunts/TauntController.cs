@@ -15,6 +15,7 @@ public class TauntController : MonoBehaviour
     public List<AudioClip> tauntSoundsAngry;
     public AudioClip startAudio;
     public AudioClip endAudio;
+    public AudioClip dieAudio;
 
     public AudioSource audioSource;
     public AudioSource audioSourceBG;
@@ -99,12 +100,13 @@ public class TauntController : MonoBehaviour
     {
         angryImage.sprite = spritesAngry[Random.Range(0, spritesAngry.Count)];
         tauntAnimator.SetBool("GameOver", true);
-        PlayAudio(endAudio);
-        Invoke("DisableEndTaunt", 0.1f);
+        PlayAudio(dieAudio);
+        Invoke("DisableEndTaunt", 0.5f);
     }
 
     public void DisableEndTaunt()
     {
+        PlayAudio(endAudio);
         tauntAnimator.SetBool("GameOver", false) ;
 
     }
