@@ -6901,13 +6901,13 @@ MonoBehaviour:
   tauntSoundsHappy:
   - {fileID: 8300000, guid: 26a9ec033c67ed643ad451a0992fba31, type: 3}
   - {fileID: 8300000, guid: e947cc0691de37b48a32c211260bfde5, type: 3}
-  - {fileID: 8300000, guid: 8b4d7db834d0b8f4484fb140818ab0ef, type: 3}
   - {fileID: 8300000, guid: 42ff87cfe8b987941b464d0a4d9216b9, type: 3}
   - {fileID: 8300000, guid: 19031b82a9933ff48887c580dd5535a4, type: 3}
   - {fileID: 8300000, guid: 4401c05bcfa6d0d42908b9798eeb12dd, type: 3}
   tauntSoundsAngry:
   - {fileID: 8300000, guid: 0a3770f604307df4088ce09fd2c5c8e2, type: 3}
-  endAudio: {fileID: 8300000, guid: ace96ed929e2d4f45bfb6474300538eb, type: 3}
+  startAudio: {fileID: 8300000, guid: 8b4d7db834d0b8f4484fb140818ab0ef, type: 3}
+  endAudio: {fileID: 8300000, guid: 67d2e09dfcd9e924aaef835ad873f96b, type: 3}
   audioSource: {fileID: 419967899}
   audioSourceBG: {fileID: 0}
   tauntAnimator: {fileID: 419967894}
@@ -7026,7 +7026,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -7366,7 +7366,6 @@ MonoBehaviour:
   - {fileID: 1291731952}
   - {fileID: 1704232035}
   - {fileID: 99592058}
-  - {fileID: 893412716}
   componentsToDisable: []
   playerMovement: {fileID: 127606304}
   player: {fileID: 127606301}

@@ -13,6 +13,7 @@ public class TauntController : MonoBehaviour
 
     public List<AudioClip> tauntSoundsHappy;
     public List<AudioClip> tauntSoundsAngry;
+    public AudioClip startAudio;
     public AudioClip endAudio;
 
     public AudioSource audioSource;
@@ -106,5 +107,24 @@ public class TauntController : MonoBehaviour
     {
         tauntAnimator.SetBool("GameOver", false) ;
 
+    }
+    
+    public void ShowStartAnimation()
+    {
+        //angryImage.sprite = spritesAngry[Random.Range(0, spritesAngry.Count)];
+        tauntAnimator.SetBool("StartAnim", true);
+        PlayAudio(startAudio);
+        Invoke("DisableStartTaunt", 0.5f);
+    }
+
+    public void DisableStartTaunt()
+    {
+        tauntAnimator.SetBool("StartAnim", false) ;
+
+    }
+
+    public void PlayStartSound()
+    {
+        PlayAudio(startAudio);
     }
 }

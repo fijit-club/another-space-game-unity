@@ -6,6 +6,7 @@ public class PlayingState : MonoBehaviour, IState
     
     public void OnEnter()
     {
+        TauntController.instance.ShowStartAnimation();
         Invoke("StartGame", 3f);
     }
 
