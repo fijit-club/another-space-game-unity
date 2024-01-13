@@ -38,6 +38,7 @@ public class PlayerMovement : MonoBehaviour
     public void LeavePlanet()
     {
         if (transform.parent == null) return;
+        print("test;");
         var transform1 = transform;
         
         redBorder.SetActive(false);

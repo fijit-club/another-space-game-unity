@@ -19,7 +19,8 @@ public class CheckToxicity : MonoBehaviour
         if (transform.parent.childCount > 1)
         {
             var player = FindObjectOfType<PlayerTrigger>();
-            player.transform.parent = null;
+            if (player.lives <= 0)
+                player.transform.parent = null;
             player.GameOver();
         }
 

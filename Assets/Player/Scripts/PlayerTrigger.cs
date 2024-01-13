@@ -28,7 +28,9 @@ public class PlayerTrigger : MonoBehaviour
     public PlanetData planetData;
     public int planetsCrossed;
     public bool savePlanetAbility;
+    [SerializeField] private TMP_Text livesText;
     
+    [SerializeField] public int lives;
     [SerializeField] private PlayerMovement playerMovement;
     [SerializeField] private Transform cameraTransform;
     [SerializeField] private GameOverState gameOverState;
@@ -58,6 +60,11 @@ public class PlayerTrigger : MonoBehaviour
     private int _coins;
     private float lastX;
     private static readonly int Factor = Animator.StringToHash("FACTOR");
+
+    private void OnEnable()
+    {
+        livesText.text = "Lives: " + lives;
+    }
 
     public void ResetCoins()
     {
@@ -163,12 +170,27 @@ public class PlayerTrigger : MonoBehaviour
     public void GameOver()
     {
         if (GameStateManager.CurrentState == mainMenuState) return;
+
+        if (lives > 0)
+        {
+            lives--;
+            livesText.text = "Lives: " + lives;
+            playerMovement.LeavePlanet();
+            var transform1 = transform;
+            Vector3 difference = _nextPlanet.position - transform1.position;
+            float rotationZ = Mathf.Atan2(difference.y, difference.x) * Mathf.Rad2Deg;
+                
+            var targetRotation = Quaternion.Euler(0.0f, 0.0f, rotationZ - 90f);
+            transform1.rotation = targetRotation;
+            return;
+        }
+        
         gameObject.SetActive(false);
         playerVisual.SetActive(false);
         GameStateManager.ChangeState(gameOverState);
 
         TauntController.instance.ShowEndTaunt();
-        Invoke("SendScore", 3f);
+        Invoke(nameof(SendScore), 3f);
 
     }
 
