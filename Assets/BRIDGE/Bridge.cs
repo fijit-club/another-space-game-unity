@@ -50,6 +50,7 @@ namespace SpaceEscape
         public int coins;
         public bool volumeBg = true;
         public bool volumeSfx = true;
+        public bool vibrationOn = true;
         public int highScore = 0;
         public Data data;
         public static PlayerInfo CreateFromJSON(string jsonString)
@@ -78,8 +79,7 @@ namespace SpaceEscape
         public int coinsCollected = 0;
         [SerializeField] private SelectShip selectShip;
         [SerializeField] private GameOverMenu gameOverMenu;
-        [SerializeField] private TMP_Text highscoreText;
-        [SerializeField] private TMP_Text highscoreText2;
+        [SerializeField] private TMP_Text[] highscoreTexts;
         
 #if UNITY_WEBGL && !UNITY_EDITOR
         [DllImport("__Internal")]
@@ -178,7 +178,6 @@ namespace SpaceEscape
         public void VibrateBridge(bool isLong)
         {
 #if UNITY_WEBGL && !UNITY_EDITOR
-    if(thisPlayerInfo.volumeBg)
       vibrate(isLong);
 #endif
 #if UNITY_EDITOR
@@ -217,8 +216,10 @@ namespace SpaceEscape
         public void Replay()
         {
             coinsCollected = 0; // REPLAY GOES HERE
-            highscoreText.text = thisPlayerInfo.highScore.ToString();
-            highscoreText2.text = thisPlayerInfo.highScore.ToString();
+            
+            foreach (var highscoreText in highscoreTexts)
+                highscoreText.text = thisPlayerInfo.highScore.ToString();
+            
             gameOverMenu.RestartGame();
         }
 
@@ -226,8 +227,9 @@ namespace SpaceEscape
         {
             thisPlayerInfo = PlayerInfo.CreateFromJSON(json);
             Debug.Log(json);
-            highscoreText.text = thisPlayerInfo.highScore.ToString();
-            highscoreText2.text = thisPlayerInfo.highScore.ToString();
+            
+            foreach (var highscoreText in highscoreTexts)
+                highscoreText.text = thisPlayerInfo.highScore.ToString();
 
             if (thisPlayerInfo.volumeSfx)
             {

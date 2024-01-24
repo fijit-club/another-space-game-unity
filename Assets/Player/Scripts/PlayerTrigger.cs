@@ -34,7 +34,7 @@ public class PlayerTrigger : MonoBehaviour
     [SerializeField] private GameOverState gameOverState;
     [SerializeField] private GameObject playerVisual;
     [SerializeField] private BasicMainMenuComponents mainMenuComponents;
-    [SerializeField] private TMP_Text coinsText;
+    [SerializeField] private TMP_Text[] coinsTexts;
     [SerializeField] private Transform directionVisual;
     [SerializeField] private MainMenuState mainMenuState;
     [SerializeField] private float maxExplosionSpeed;
@@ -61,13 +61,21 @@ public class PlayerTrigger : MonoBehaviour
     {
         planetRotationStart = 15f;
         planetData.yFactor = 1f;
-        coinsText.text = "0";
+
+        UpdateCoinsText("0");
+            
         _coins = 0;
         _rotation = 180f;
         lastX = 0f;
         planetData.maxIncrementY = 3f;
     }
-    
+
+    private void UpdateCoinsText(string coinsString)
+    {
+        foreach (var coinsText in coinsTexts)
+            coinsText.text = coinsString;
+    }
+
     private void OnTriggerEnter2D(Collider2D col)
     {
         if (col.CompareTag("Planet"))
@@ -81,7 +89,8 @@ public class PlayerTrigger : MonoBehaviour
                 redBorder.SetFloat(Factor, explosionSpeed);
             }
 
-            Bridge.GetInstance().VibrateBridge(false);
+            if (GameToggles.VibrationOn)
+                Bridge.GetInstance().VibrateBridge(false);
             
             _currentPlanet = col.transform;
             
@@ -132,7 +141,8 @@ public class PlayerTrigger : MonoBehaviour
             
             Destroy(col.gameObject);
             _coins+=5;
-            coinsText.text = _coins.ToString();
+
+            UpdateCoinsText(_coins.ToString());
         }
         else if (col.CompareTag("Collectible"))
         {
@@ -162,7 +172,7 @@ public class PlayerTrigger : MonoBehaviour
 
     }
 
-    void SendScore()
+    public void SendScore()
     {
         Bridge.GetInstance().UpdateCoins(_coins);
         Bridge.GetInstance().SendScore(playerMovement.score);

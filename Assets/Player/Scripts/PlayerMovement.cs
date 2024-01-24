@@ -10,7 +10,7 @@ public class PlayerMovement : MonoBehaviour
     public Transform nextPlanet;
     
     [SerializeField] private float speed;
-    [SerializeField] private TMP_Text scoreText;
+    [SerializeField] private TMP_Text[] scoreTexts;
     [SerializeField] private PlayerTrigger playerTrigger;
     [SerializeField] private GameObject directionVisual;
     [SerializeField] private float speedIncrement;
@@ -29,10 +29,16 @@ public class PlayerMovement : MonoBehaviour
 
     public void ResetScore()
     {
-        scoreText.text = "0";
+        UpdateScoreText("0");
         score = 0;
         playerTrigger.ResetCoins();
         speed = 15;
+    }
+
+    private void UpdateScoreText(string localScore)
+    {
+        foreach (var scoreText in scoreTexts)
+            scoreText.text = localScore;
     }
 
     public void LeavePlanet()
@@ -73,7 +79,7 @@ public class PlayerMovement : MonoBehaviour
         {
             _time = 0f;
             score += 10;
-            scoreText.text = score.ToString();
+            UpdateScoreText(score.ToString());
         }
     }
     
