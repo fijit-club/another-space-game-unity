@@ -213,6 +213,7 @@ namespace SpaceEscape
             AudioListener.volume = 1;
         }
 
+        [ContextMenu("Do replay")]
         public void Replay()
         {
             coinsCollected = 0; // REPLAY GOES HERE
@@ -323,7 +324,7 @@ namespace SpaceEscape
                             "\"TEST\"" +
                             "}}");
         }
-        [ContextMenu("Do Something2")]
+       
         public void SendTextData2()
         {
             //SetShootSpeed(50);
