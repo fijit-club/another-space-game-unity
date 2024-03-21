@@ -158,11 +158,11 @@ MonoBehaviour:
   incrementSpeed: 0.2
   maxSpeed: 40
   islandImages:
-  - {fileID: 21300000, guid: ce5185d1ebb47ca47b6c850d956026cd, type: 3}
-  - {fileID: 21300000, guid: 0957cbe723201b14899ea528721f2e52, type: 3}
-  - {fileID: 21300000, guid: f05d9bf888bf91b45b651ab366c85f80, type: 3}
-  - {fileID: 21300000, guid: 2e9231d29a0ebdf49a3ab24260be7af4, type: 3}
-  - {fileID: 21300000, guid: ae2282ad710469649b49b347f2a49165, type: 3}
+  - {fileID: 21300000, guid: a793974c421ea4b40b69267396b7e09b, type: 3}
+  - {fileID: 21300000, guid: 38f0b150f4b0fe6408d68cd3d566a760, type: 3}
+  - {fileID: 21300000, guid: d858af9d2f03ecb4d815e25bf567badc, type: 3}
+  - {fileID: 21300000, guid: a793974c421ea4b40b69267396b7e09b, type: 3}
+  - {fileID: 21300000, guid: d858af9d2f03ecb4d815e25bf567badc, type: 3}
   islandSpriteRenderer: {fileID: 2096213381329347590}
   _rotationSpeed: 0
 --- !u!114 &314824011483810980
